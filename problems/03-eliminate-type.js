@@ -51,9 +51,23 @@ Hint: Remember Polya's problem solving framework!
 ***********************************************************************/
 
 function eliminateType(arr) {
-  // Your code here 
-}
+  return (string) => {
 
+    let newArr = []
+
+    for (let i = 0; i < arr.length; i++) {
+      let el = arr[i];
+      if (typeof el !== string) {
+        newArr.push(el)
+      }
+    }
+    return newArr;
+  }
+
+}
+const eliminate = eliminateType([2, undefined, 'world', { color: 'red' }, true, 3, [4, 5], 'hello', false]);
+console.log(eliminate('number')); // [undefined, 'world', { color: 'red' }, true, [4, 5], 'hello', false]
+console.log(eliminate('object')); // [2, undefined, 'world', true, 3, 'hello', false]
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
   module.exports = eliminateType;
