@@ -60,14 +60,14 @@ mostFrequentVowel(['dog', 'cow', 'pig', 'chicken']); // 'i' or 'o'
 ***********************************************************************/
 const highestKey = (obj) => {
   let highest = 0;
-  let highestKey = '';
+  let highKey = '';
   for (let key in obj) {
     if (obj[key] > highest) {
-      highest = obj[key]
-      highestKey = key;
+      highest = obj[key];
+      highKey = key;
     }
   }
-  return highestKey
+  return highKey;
 }
 
 
@@ -76,20 +76,22 @@ const mostFrequentVowel = function (words, counter = {}) {
   if (words.length === 0) {
     return highestKey(counter);
   }
-  let word = words.pop();
-  for (let i = 0; i < word.length; i++) {
-    let char = word[i]
+  let word = words[words.length - 1];
+
+  for (let i = word.length - 1; i >= 0; i--) {
+    let char = word[i];
+
     if (VOWELS.includes(char) && (counter[char] === undefined)) {
       counter[char] = 1;
     } else if (VOWELS.includes(char) && (counter[char] !== undefined)) {
-      counter[char]++;
+      counter[char] += 1;
     }
 
-
   }
-  mostFrequentVowel(words, counter)
-
+  words.pop()
+  return mostFrequentVowel(words, counter)
 }
+// debugger
 console.log(mostFrequentVowel(['dog', 'cow', 'pig', 'chicken', 'horse'])); // 'o'
 console.log(mostFrequentVowel(['dog', 'cow', 'pig', 'chicken'])); // 'i' or 'o'
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
