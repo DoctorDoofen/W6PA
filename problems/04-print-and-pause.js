@@ -22,9 +22,31 @@ printAndPause([200, 800, 200, 800, 200, 800])
 ***********************************************************************/
 
 function printAndPause(nums) {
-  // Your code here 
+
+  if (nums.length === 0) {
+    return
+  }
+
+  let num = nums.shift()
+  setTimeout(() => {
+    console.log(num)
+    return printAndPause(nums)
+  }, num);
 }
 
+console.log(printAndPause([200, 800, 200, 800, 200, 800]))
+// 200
+// pause 200ms
+// 800
+// pause 800ms
+// 200
+// pause 200ms
+// 800
+// pause 800ms
+// 200
+// pause 200ms
+// 800
+// pause 800ms
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
   module.exports = printAndPause;
