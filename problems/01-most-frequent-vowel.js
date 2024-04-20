@@ -88,6 +88,7 @@ const mostFrequentVowel = function (words, counter = {}) {
     }
 
   }
+
   words.pop()
   return mostFrequentVowel(words, counter)
 }
