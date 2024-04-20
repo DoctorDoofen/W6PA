@@ -8,8 +8,12 @@ console.log(makeAnimalSound("cow", "moo")); // => "cow goes moo!"
 console.log(makeAnimalSound("DUCK", "QUACK")); // => "DUCK goes QUACK!"
 ***********************************************************************/
 
-// Your code here 
+const makeAnimalSound = function (animal, sound) {
+  return `${animal} goes ${sound}!`
+}
 
+console.log(makeAnimalSound("cow", "moo")); // => "cow goes moo!"
+console.log(makeAnimalSound("DUCK", "QUACK")); // => "DUCK goes QUACK!"
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
   module.exports = makeAnimalSound;
